@@ -46,3 +46,9 @@ tabs:
               display: Message
               validate:
                 - required
+          -
+            handle: admin_reviewed
+            field:
+              type: toggle
+              display: Admin Reviewed
+              default: false

@@ -6,7 +6,10 @@ preferences:
   forms:
     contact:
       columns:
+        - admin_reviewed
         - datestamp
-        - email
         - name
+        - email
+        - phone
         - interest
+        - message
