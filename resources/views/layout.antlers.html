@@ -9,6 +9,16 @@
     </head>
     <body class="site-shell">
         <div class="site-frame">
+            <header class="site-header">
+                <a href="/" class="site-header__brand">
+                    {{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}
+                </a>
+
+                <nav class="site-header__nav" aria-label="Primary">
+                    <a href="/" class="site-header__link">Home</a>
+                </nav>
+            </header>
+
             {{ template_content }}
         </div>
     </body>
