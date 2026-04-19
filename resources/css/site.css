@@ -48,6 +48,12 @@ body.site-shell {
 	gap: 1.5rem;
 }
 
+.default-page-shell,
+.contact-page-shell {
+	display: grid;
+	gap: 1.5rem;
+}
+
 .hero-panel,
 .content-section,
 .site-footer {
@@ -105,6 +111,7 @@ body.site-shell {
 }
 
 .hero-title,
+.page-title,
 .content-section h2,
 .info-card h3 {
 	margin: 0;
@@ -116,6 +123,12 @@ body.site-shell {
 	max-width: 11ch;
 	margin-top: 0.6rem;
 	font-size: clamp(3rem, 8vw, 5.8rem);
+}
+
+.page-title {
+	max-width: 12ch;
+	font-size: clamp(2.6rem, 6vw, 4.5rem);
+	color: var(--navy-deep);
 }
 
 .hero-copy,
@@ -277,6 +290,124 @@ body.site-shell {
 	margin-top: 1.5rem;
 }
 
+.page-hero.compact-hero {
+	padding-bottom: 1.8rem;
+}
+
+.page-intro {
+	margin-top: 1.25rem;
+	max-width: 46rem;
+}
+
+.page-body-section {
+	padding-top: 1.8rem;
+}
+
+.page-prose {
+	max-width: 48rem;
+}
+
+.page-prose ul {
+	padding-left: 1.2rem;
+	list-style: disc;
+}
+
+.contact-layout {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.contact-copy-block {
+	display: grid;
+	gap: 1rem;
+}
+
+.contact-details-list {
+	display: grid;
+	gap: 0.75rem;
+	color: var(--ink-soft);
+}
+
+.contact-details-list a {
+	color: var(--red-deep);
+}
+
+.form-card {
+	padding: 1.25rem;
+	border-radius: 1.4rem;
+	border: 1px solid var(--line);
+	background: rgba(255, 251, 245, 0.9);
+}
+
+.contact-form {
+	display: grid;
+	gap: 1rem;
+}
+
+.form-grid {
+	display: grid;
+	gap: 1rem;
+}
+
+.form-field {
+	display: grid;
+	gap: 0.45rem;
+	font-weight: 700;
+	color: var(--navy-deep);
+}
+
+.form-field span {
+	font-size: 0.95rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+	width: 100%;
+	border: 1px solid rgba(28, 36, 49, 0.18);
+	border-radius: 0.95rem;
+	background: rgba(255, 255, 255, 0.9);
+	padding: 0.8rem 0.95rem;
+	color: var(--ink);
+}
+
+.form-field textarea {
+	resize: vertical;
+}
+
+.form-field-wide {
+	grid-column: 1 / -1;
+}
+
+.form-errors {
+	padding: 0.9rem 1rem;
+	border-radius: 1rem;
+	background: rgba(182, 64, 60, 0.1);
+	color: var(--red-deep);
+}
+
+.form-errors ul {
+	margin-top: 0.5rem;
+	padding-left: 1.2rem;
+	list-style: disc;
+}
+
+.form-success {
+	padding: 0.9rem 1rem;
+	border-radius: 1rem;
+	background: rgba(31, 54, 89, 0.1);
+	color: var(--navy-deep);
+}
+
+.hp-field {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+}
+
 .contact-details {
 	padding: 1.2rem;
 	border-radius: 1.25rem;
@@ -322,9 +453,14 @@ body.site-shell {
 
 	.hero-grid,
 	.contact-panel,
-	.split-heading {
+	.split-heading,
+	.contact-layout {
 		grid-template-columns: minmax(0, 1.6fr) minmax(18rem, 1fr);
 		align-items: start;
+	}
+
+	.form-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.priority-grid,

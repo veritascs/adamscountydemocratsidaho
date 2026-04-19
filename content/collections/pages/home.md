@@ -7,7 +7,7 @@ hero_eyebrow: Adams County, Idaho
 hero_heading: Local Democrats building a more connected and participatory county.
 hero_text: 'We are neighbors, volunteers, and community members working to strengthen civic life in Adams County through practical local organizing, public engagement, and year-round community involvement.'
 primary_cta_label: Get involved
-primary_cta_url: '#get-involved'
+primary_cta_url: /contact
 secondary_cta_label: See community events
 secondary_cta_url: '#events'
 intro_heading: A county party page should feel local.
@@ -59,20 +59,20 @@ involvement_paths:
     id: mf4u7jo8
     title: Attend a meeting
     summary: Join a local meeting to listen, ask questions, and get a feel for the group before taking on anything else.
-    cta_label: View events
-    cta_url: '#events'
+    cta_label: Contact the team
+    cta_url: /contact
   -
     id: mf4u7jo9
     title: Volunteer locally
     summary: Help with outreach, event setup, community conversations, and the practical work that keeps a county party active.
     cta_label: Join the effort
-    cta_url: '#contact'
+    cta_url: /contact
   -
     id: mf4u7jo10
     title: Stay in the loop
     summary: Subscribe for updates so people can hear about meetings, opportunities, and local priorities without needing insider knowledge.
     cta_label: Contact us
-    cta_url: '#contact'
+    cta_url: /contact
 contact_heading: Let people know how to reach the county team
 contact_text: |
 
