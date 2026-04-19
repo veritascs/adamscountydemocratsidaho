@@ -37,6 +37,95 @@ In order to ensure that the Statamic community is welcoming to all and generally
 - [Statamic Migrator](https://github.com/statamic/migrator)
 - [Statamic Discord][discord]
 
+## DreamHost Deployment
+
+This site is deployed on DreamHost with the application code outside the served web root.
+
+### Server layout
+
+- App repo: `/home/dh_v2mg7z/adamscountydemocratsidaho.org/adamscountydemocratsidaho`
+- Served web root: `/home/dh_v2mg7z/adamscountydemocratsidaho.org/public`
+
+### One-time setup
+
+1. Install Composer locally for the DreamHost shell user:
+
+	```bash
+	mkdir -p ~/.php/composer
+	cd ~/.php/composer
+	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+	php composer-setup.php --filename=composer.phar
+	rm composer-setup.php
+	```
+
+2. Create `.env` from `.env.example` and configure production values.
+
+3. Make sure the served `public/index.php` points back to the repo:
+
+	```php
+	<?php
+
+	use Illuminate\Foundation\Application;
+	use Illuminate\Http\Request;
+
+	define('LARAVEL_START', microtime(true));
+
+	$basePath = __DIR__.'/../adamscountydemocratsidaho';
+
+	if (file_exists($maintenance = $basePath.'/storage/framework/maintenance.php')) {
+		 require $maintenance;
+	}
+
+	require $basePath.'/vendor/autoload.php';
+
+	/** @var Application $app */
+	$app = require_once $basePath.'/bootstrap/app.php';
+
+	$app->handleRequest(Request::capture());
+	```
+
+### Deploy steps
+
+Run on the DreamHost server:
+
+```bash
+cd /home/dh_v2mg7z/adamscountydemocratsidaho.org/adamscountydemocratsidaho
+git pull
+php ~/.php/composer/composer.phar install --no-dev --optimize-autoloader
+php artisan optimize
+php please stache:refresh
+```
+
+If the sqlite database file does not exist yet:
+
+```bash
+touch database/database.sqlite
+```
+
+### Frontend assets
+
+Vite build files are ignored by git, so after frontend changes you must upload `public/build` from your local machine to both locations:
+
+1. The repo `public/build` so Laravel can read the Vite manifest.
+2. The served `public/build` so browsers can fetch the CSS and JS.
+
+From the local machine:
+
+```bash
+rsync -av /Users/Max.Bechdel/Projects/adamscountydems/public/build/ \
+dh_v2mg7z@pdx1-shared-a1-06.dreamhost.com:/home/dh_v2mg7z/adamscountydemocratsidaho.org/adamscountydemocratsidaho/public/build/
+
+rsync -av /Users/Max.Bechdel/Projects/adamscountydems/public/build/ \
+dh_v2mg7z@pdx1-shared-a1-06.dreamhost.com:/home/dh_v2mg7z/adamscountydemocratsidaho.org/public/build/
+```
+
+### Known gotchas
+
+- The lock file must stay compatible with PHP 8.2 on DreamHost.
+- `APP_URL` must include the scheme, for example `https://adamscountydemocratsidaho.org`.
+- `APP_DEBUG` should be `false` in production.
+- If the frontend 500s while `/cp` still works, check `public/index.php` pathing and whether `public/build` exists in both locations.
+
 [docs]: https://statamic.dev/
 [discord]: https://statamic.com/discord
 [contribution]: https://github.com/statamic/cms/blob/master/CONTRIBUTING.md
