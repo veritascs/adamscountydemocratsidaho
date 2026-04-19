@@ -1,10 +1,6 @@
 title: Contact
 honeypot: website
 store: true
-email:
-  -
-    to: mbechdel@gmail.com
-    subject: New Adams County Democrats contact form submission
 fields:
   -
     handle: name
