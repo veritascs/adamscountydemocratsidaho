@@ -1,0 +1,212 @@
+title: Home
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Hero
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: hero_eyebrow
+            field:
+              type: text
+              display: Hero Eyebrow
+          -
+            handle: hero_heading
+            field:
+              type: text
+              display: Hero Heading
+              required: true
+              validate:
+                - required
+          -
+            handle: hero_text
+            field:
+              type: textarea
+              display: Hero Text
+          -
+            handle: primary_cta_label
+            field:
+              type: text
+              display: Primary CTA Label
+          -
+            handle: primary_cta_url
+            field:
+              type: text
+              display: Primary CTA URL
+          -
+            handle: secondary_cta_label
+            field:
+              type: text
+              display: Secondary CTA Label
+          -
+            handle: secondary_cta_url
+            field:
+              type: text
+              display: Secondary CTA URL
+      -
+        display: Introduction
+        fields:
+          -
+            handle: intro_heading
+            field:
+              type: text
+              display: Intro Heading
+          -
+            handle: intro_text
+            field:
+              type: markdown
+              display: Intro Text
+          -
+            handle: priority_heading
+            field:
+              type: text
+              display: Priorities Heading
+          -
+            handle: priorities
+            field:
+              type: grid
+              display: Priorities
+              min_rows: 3
+              add_row: Add Priority
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    required: true
+                    validate:
+                      - required
+                -
+                  handle: summary
+                  field:
+                    type: textarea
+                    display: Summary
+      -
+        display: Community
+        fields:
+          -
+            handle: events_heading
+            field:
+              type: text
+              display: Events Heading
+          -
+            handle: events_intro
+            field:
+              type: textarea
+              display: Events Intro
+          -
+            handle: event_highlights
+            field:
+              type: grid
+              display: Event Highlights
+              min_rows: 3
+              add_row: Add Event Highlight
+              fields:
+                -
+                  handle: date_label
+                  field:
+                    type: text
+                    display: Date Label
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    required: true
+                    validate:
+                      - required
+                -
+                  handle: description
+                  field:
+                    type: textarea
+                    display: Description
+          -
+            handle: involvement_heading
+            field:
+              type: text
+              display: Involvement Heading
+          -
+            handle: involvement_intro
+            field:
+              type: textarea
+              display: Involvement Intro
+          -
+            handle: involvement_paths
+            field:
+              type: grid
+              display: Involvement Paths
+              min_rows: 3
+              max_rows: 3
+              add_row: Add Involvement Path
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    required: true
+                    validate:
+                      - required
+                -
+                  handle: summary
+                  field:
+                    type: textarea
+                    display: Summary
+                -
+                  handle: cta_label
+                  field:
+                    type: text
+                    display: CTA Label
+                -
+                  handle: cta_url
+                  field:
+                    type: text
+                    display: CTA URL
+      -
+        display: Contact
+        fields:
+          -
+            handle: contact_heading
+            field:
+              type: text
+              display: Contact Heading
+          -
+            handle: contact_text
+            field:
+              type: markdown
+              display: Contact Text
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: max:200
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

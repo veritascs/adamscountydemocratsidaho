@@ -1,0 +1,92 @@
+<main class="contact-page-shell">
+    <section class="content-section page-hero compact-hero">
+        <div class="section-heading-block">
+            <p class="section-kicker">Get involved</p>
+            <h1 class="page-title">{{ title }}</h1>
+        </div>
+
+        <div class="page-intro prose-copy">
+            {{ content | markdown }}
+        </div>
+    </section>
+
+    <section class="content-section contact-layout">
+        <div class="contact-copy-block">
+            <div class="section-heading-block">
+                <p class="section-kicker">Reach the county team</p>
+                <h2>Tell us how you want to plug in.</h2>
+            </div>
+
+            <p class="section-intro">
+                This form is enough to start real follow-up. It gives people one place to ask questions, volunteer, or ask how to attend a meeting.
+            </p>
+
+            <div class="contact-details-list">
+                {{ if site_settings:contact_email }}
+                    <p><strong>Email:</strong> <a href="mailto:{{ site_settings:contact_email }}">{{ site_settings:contact_email }}</a></p>
+                {{ else }}
+                    <p><strong>Email:</strong> Add a public contact email in site settings to display it here.</p>
+                {{ /if }}
+
+                <p><strong>Suggested use:</strong> Volunteer follow-up, meeting questions, community outreach, and general contact.</p>
+            </div>
+        </div>
+
+        <div class="form-card">
+            {{ form:create in="contact" redirect="/thanks" class="contact-form" }}
+                {{ if success }}
+                    <p class="form-success">Thanks. Your message has been sent.</p>
+                {{ /if }}
+
+                {{ if errors }}
+                    <div class="form-errors">
+                        <p>Please fix the following:</p>
+                        <ul>
+                            {{ errors }}
+                                <li>{{ value }}</li>
+                            {{ /errors }}
+                        </ul>
+                    </div>
+                {{ /if }}
+
+                <div class="form-grid">
+                    <label class="form-field">
+                        <span>Name</span>
+                        <input type="text" name="name" value="{{ old:name }}" />
+                    </label>
+
+                    <label class="form-field">
+                        <span>Email Address</span>
+                        <input type="email" name="email" value="{{ old:email }}" />
+                    </label>
+
+                    <label class="form-field">
+                        <span>Phone Number</span>
+                        <input type="tel" name="phone" value="{{ old:phone }}" />
+                    </label>
+
+                    <label class="form-field">
+                        <span>Interest</span>
+                        <select name="interest">
+                            <option value="">Choose one</option>
+                            <option value="Attend a meeting">Attend a meeting</option>
+                            <option value="Volunteer">Volunteer</option>
+                            <option value="Stay informed">Stay informed</option>
+                            <option value="Candidate support">Candidate support</option>
+                            <option value="General questions">General questions</option>
+                        </select>
+                    </label>
+
+                    <label class="form-field form-field-wide">
+                        <span>Message</span>
+                        <textarea name="message" rows="6">{{ old:message }}</textarea>
+                    </label>
+
+                    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <button type="submit" class="button button-primary">Send message</button>
+            {{ /form:create }}
+        </div>
+    </section>
+</main>

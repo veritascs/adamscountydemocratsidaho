@@ -1,4 +1,15 @@
 name: 'Max Bechdel'
 super: true
-id: 7a6aebb5-2b32-4eff-8b00-dbe63da79b0a
-password_hash: $2y$12$fl1HnOeGAY5qbcQwsBideuZBUzYiW/B/tJWhfB2/ncO8gYmTZCs3q
+id: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+password_hash: $2y$12$1HKW./y/z9HHyiHDDYzeMe1Xj/C/FGnX3MQRRMU6hJSgBXBGcUfuu
+preferences:
+  forms:
+    contact:
+      columns:
+        - admin_reviewed
+        - datestamp
+        - name
+        - email
+        - phone
+        - interest
+        - message

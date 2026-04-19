@@ -1,1 +1,17 @@
-{{ content }}
+<main class="default-page-shell">
+	<section class="content-section page-hero compact-hero">
+		<div class="section-heading-block">
+			<p class="section-kicker">Page</p>
+			<h1 class="page-title">{{ title }}</h1>
+			{{ if sub_title }}
+				<p class="section-intro">{{ sub_title }}</p>
+			{{ /if }}
+		</div>
+	</section>
+
+	<section class="content-section page-body-section">
+		<article class="page-prose prose-copy">
+			{{ content | markdown }}
+		</article>
+	</section>
+</main>
