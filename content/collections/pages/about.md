@@ -22,3 +22,5 @@ This site is meant to be a public front door. It should help neighbors understan
 ### What we want this to become
 
 Over time, this site should grow into a useful local resource with real event listings, county-specific updates, volunteer opportunities, and practical information for new members.
+
+<a href="/contact" class="button button-primary">Contact the county team</a>
