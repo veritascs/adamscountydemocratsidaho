@@ -282,12 +282,39 @@ body.site-shell {
 	color: var(--ink-soft);
 }
 
-.prose-copy :where(p, ul) {
+
+.prose-copy > *,
+.page-prose > * {
 	margin: 0;
 }
 
-.prose-copy :where(p + p, p + ul, ul + p) {
-	margin-top: 1rem;
+.prose-copy > * + *,
+.page-prose > * + * {
+	margin-top: 1.1rem;
+
+}
+
+.prose-copy :where(h2, h3, h4),
+.page-prose :where(h2, h3, h4) {
+	font-family: var(--font-serif);
+	line-height: 1.08;
+	color: var(--navy-deep);
+}
+
+.prose-copy :where(h2, h3, h4):not(:first-child),
+.page-prose :where(h2, h3, h4):not(:first-child) {
+	margin-top: 1.8rem;
+
+}
+
+.prose-copy :where(ul, ol),
+.page-prose :where(ul, ol) {
+	padding-left: 1.2rem;
+}
+
+.prose-copy :where(li + li),
+.page-prose :where(li + li) {
+	margin-top: 0.45rem;
 }
 
 .card-grid {
@@ -356,7 +383,6 @@ body.site-shell {
 }
 
 .page-prose ul {
-	padding-left: 1.2rem;
 	list-style: disc;
 }
 
