@@ -2,3 +2,345 @@
 @plugin "@tailwindcss/typography";
 @source "../views";
 @source "../../content";
+
+:root {
+	--paper: #f3efe3;
+	--paper-strong: #e8deca;
+	--ink: #1c2431;
+	--ink-soft: #4f5c6e;
+	--navy: #1f3659;
+	--navy-deep: #162743;
+	--red: #b6403c;
+	--red-deep: #8f2f2c;
+	--line: rgba(28, 36, 49, 0.12);
+	--card: rgba(255, 255, 255, 0.74);
+	--shadow: 0 24px 60px rgba(22, 39, 67, 0.14);
+}
+
+@theme {
+	--font-sans: "Avenir Next", "Segoe UI", sans-serif;
+	--font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body.site-shell {
+	margin: 0;
+	min-height: 100vh;
+	color: var(--ink);
+	background:
+		radial-gradient(circle at top left, rgba(182, 64, 60, 0.18), transparent 28%),
+		radial-gradient(circle at 85% 12%, rgba(31, 54, 89, 0.15), transparent 22%),
+		linear-gradient(180deg, #f8f3e7 0%, var(--paper) 42%, #efe7d7 100%);
+	font-family: var(--font-sans);
+}
+
+.site-frame {
+	width: min(1120px, calc(100% - 2rem));
+	margin: 0 auto;
+	padding: 1.25rem 0 3rem;
+}
+
+.home-page {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.hero-panel,
+.content-section,
+.site-footer {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 1.75rem;
+	background: var(--card);
+	backdrop-filter: blur(10px);
+	box-shadow: var(--shadow);
+}
+
+.hero-panel {
+	padding: 1.5rem;
+	background:
+		linear-gradient(135deg, rgba(31, 54, 89, 0.96), rgba(22, 39, 67, 0.92)),
+		linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
+	color: #f8f4ea;
+}
+
+.hero-panel::after {
+	content: "";
+	position: absolute;
+	inset: auto -8% -30% auto;
+	width: 18rem;
+	aspect-ratio: 1;
+	border-radius: 999px;
+	background: radial-gradient(circle, rgba(182, 64, 60, 0.38), rgba(182, 64, 60, 0));
+}
+
+.site-mark,
+.eyebrow,
+.section-kicker,
+.aside-label,
+.card-meta,
+.card-number {
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 0.76rem;
+	font-weight: 700;
+}
+
+.site-mark {
+	display: inline-flex;
+	padding: 0.5rem 0.8rem;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-grid {
+	display: grid;
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.hero-title,
+.content-section h2,
+.info-card h3 {
+	margin: 0;
+	font-family: var(--font-serif);
+	line-height: 0.96;
+}
+
+.hero-title {
+	max-width: 11ch;
+	margin-top: 0.6rem;
+	font-size: clamp(3rem, 8vw, 5.8rem);
+}
+
+.hero-copy,
+.section-intro,
+.info-card p,
+.prose-copy,
+.contact-line,
+.site-footer p,
+.hero-aside p,
+.hero-notes li {
+	color: inherit;
+	line-height: 1.65;
+	font-size: 1rem;
+}
+
+.hero-copy {
+	max-width: 44rem;
+	margin: 1.2rem 0 0;
+	color: rgba(248, 244, 234, 0.84);
+}
+
+.hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9rem;
+	margin-top: 1.5rem;
+}
+
+.button,
+.text-link,
+.social-links a {
+	transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.9rem;
+	padding: 0.75rem 1.15rem;
+	border-radius: 999px;
+	border: 1px solid transparent;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.button:hover,
+.text-link:hover,
+.social-links a:hover {
+	transform: translateY(-1px);
+}
+
+.button-primary {
+	background: var(--red);
+	color: #fff4ef;
+}
+
+.button-primary:hover {
+	background: var(--red-deep);
+}
+
+.button-secondary {
+	border-color: rgba(255, 255, 255, 0.22);
+	color: #f8f4ea;
+	background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-aside {
+	align-self: end;
+	padding: 1.2rem;
+	border-radius: 1.3rem;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-notes {
+	margin: 1rem 0 0;
+	padding-left: 1.1rem;
+	color: rgba(248, 244, 234, 0.84);
+}
+
+.content-section {
+	padding: 1.4rem;
+}
+
+.content-section h2 {
+	max-width: 14ch;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	color: var(--navy-deep);
+}
+
+.section-kicker,
+.card-number,
+.card-meta {
+	color: var(--red-deep);
+}
+
+.prose-copy,
+.section-intro,
+.info-card p,
+.contact-line,
+.site-footer p {
+	color: var(--ink-soft);
+}
+
+.prose-copy :where(p, ul) {
+	margin: 0;
+}
+
+.prose-copy :where(p + p, p + ul, ul + p) {
+	margin-top: 1rem;
+}
+
+.card-grid {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.info-card {
+	padding: 1.2rem;
+	border-radius: 1.25rem;
+	border: 1px solid var(--line);
+	background: rgba(255, 252, 247, 0.84);
+}
+
+.info-card h3 {
+	margin-top: 0.3rem;
+	font-size: 1.7rem;
+	color: var(--navy);
+}
+
+.action-card {
+	background: linear-gradient(180deg, rgba(255, 250, 243, 0.94), rgba(238, 228, 210, 0.9));
+}
+
+.text-link {
+	display: inline-flex;
+	margin-top: 1rem;
+	color: var(--red-deep);
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.split-heading {
+	display: grid;
+	gap: 1rem;
+}
+
+.accent-section {
+	background:
+		linear-gradient(135deg, rgba(253, 247, 236, 0.96), rgba(242, 232, 214, 0.92)),
+		var(--card);
+}
+
+.contact-panel {
+	display: grid;
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.contact-details {
+	padding: 1.2rem;
+	border-radius: 1.25rem;
+	border: 1px solid var(--line);
+	background: rgba(31, 54, 89, 0.06);
+}
+
+.social-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 1rem;
+}
+
+.social-links a {
+	color: var(--navy);
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.site-footer {
+	display: grid;
+	gap: 0.4rem;
+	padding: 1.2rem 1.4rem;
+}
+
+@media (min-width: 760px) {
+	.site-frame {
+		width: min(1180px, calc(100% - 2.5rem));
+		padding-top: 1.5rem;
+	}
+
+	.hero-panel,
+	.content-section,
+	.site-footer {
+		border-radius: 2rem;
+	}
+
+	.hero-panel,
+	.content-section {
+		padding: 2rem;
+	}
+
+	.hero-grid,
+	.contact-panel,
+	.split-heading {
+		grid-template-columns: minmax(0, 1.6fr) minmax(18rem, 1fr);
+		align-items: start;
+	}
+
+	.priority-grid,
+	.event-grid,
+	.involvement-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 980px) {
+	.priority-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.event-grid,
+	.involvement-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}

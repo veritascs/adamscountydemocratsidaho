@@ -1,0 +1,47 @@
+title: Site Settings
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: organization_name
+            field:
+              type: text
+              display: Organization Name
+          -
+            handle: county_name
+            field:
+              type: text
+              display: County Name
+          -
+            handle: state_name
+            field:
+              type: text
+              display: State Name
+          -
+            handle: contact_email
+            field:
+              type: text
+              display: Contact Email
+          -
+            handle: facebook_url
+            field:
+              type: text
+              display: Facebook URL
+          -
+            handle: instagram_url
+            field:
+              type: text
+              display: Instagram URL
+          -
+            handle: donation_url
+            field:
+              type: text
+              display: Donation URL
+          -
+            handle: footer_blurb
+            field:
+              type: textarea
+              display: Footer Blurb
