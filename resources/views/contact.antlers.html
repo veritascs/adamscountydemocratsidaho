@@ -85,6 +85,12 @@
                     <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" />
                 </div>
 
+                {{ captcha }}
+
+                {{ if error:captcha }}
+                    <p>{{ error:captcha }}</p>
+                {{ /if }}
+
                 <button type="submit" class="button button-primary">Send message</button>
             {{ /form:create }}
         </div>

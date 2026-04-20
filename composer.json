@@ -12,6 +12,7 @@
     "require": {
         "php": "^8.2",
         "alt-design/alt-password-protect": "^1.4",
+        "aryehraber/statamic-captcha": "^1.17",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "statamic/cms": "^5.0"
