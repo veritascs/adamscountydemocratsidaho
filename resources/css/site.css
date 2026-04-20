@@ -12,9 +12,39 @@
 	--navy-deep: #162743;
 	--red: #b6403c;
 	--red-deep: #8f2f2c;
-	--line: rgba(28, 36, 49, 0.12);
-	--card: rgba(255, 255, 255, 0.74);
-	--shadow: 0 24px 60px rgba(22, 39, 67, 0.14);
+	--line: color-mix(in srgb, var(--ink) 12%, transparent);
+	--card: color-mix(in srgb, white 74%, transparent);
+	--shadow-color: color-mix(in srgb, var(--navy-deep) 14%, transparent);
+	--shadow: 0 24px 60px var(--shadow-color);
+	--page-top-tint: color-mix(in srgb, var(--red) 18%, transparent);
+	--page-side-tint: color-mix(in srgb, var(--navy) 15%, transparent);
+	--page-wash-start: color-mix(in srgb, white 78%, var(--paper) 22%);
+	--page-wash-end: color-mix(in srgb, white 42%, var(--paper-strong) 58%);
+	--header-link-surface: color-mix(in srgb, white 58%, transparent);
+	--hero-panel-start: color-mix(in srgb, var(--navy) 96%, transparent);
+	--hero-panel-end: color-mix(in srgb, var(--navy-deep) 92%, transparent);
+	--hero-text: color-mix(in srgb, white 95%, var(--paper) 5%);
+	--hero-text-soft: color-mix(in srgb, var(--hero-text) 84%, transparent);
+	--hero-glow: color-mix(in srgb, var(--red) 38%, transparent);
+	--hero-badge-border: color-mix(in srgb, white 16%, transparent);
+	--hero-badge-surface: color-mix(in srgb, white 8%, transparent);
+	--button-primary-text: color-mix(in srgb, white 96%, var(--paper) 4%);
+	--button-secondary-border: color-mix(in srgb, white 22%, transparent);
+	--button-secondary-surface: color-mix(in srgb, white 6%, transparent);
+	--button-secondary-text: var(--hero-text);
+	--hero-aside-surface: color-mix(in srgb, white 8%, transparent);
+	--hero-aside-border: color-mix(in srgb, white 10%, transparent);
+	--info-card-surface: color-mix(in srgb, white 84%, var(--paper) 16%);
+	--action-card-start: color-mix(in srgb, white 76%, var(--paper) 24%);
+	--action-card-end: color-mix(in srgb, white 36%, var(--paper-strong) 64%);
+	--accent-start: color-mix(in srgb, white 74%, var(--paper) 26%);
+	--accent-end: color-mix(in srgb, white 32%, var(--paper-strong) 68%);
+	--form-surface: color-mix(in srgb, white 88%, var(--paper) 12%);
+	--contact-surface: color-mix(in srgb, var(--navy) 6%, white 94%);
+	--input-border: color-mix(in srgb, var(--ink) 18%, transparent);
+	--input-surface: color-mix(in srgb, white 90%, transparent);
+	--error-surface: color-mix(in srgb, var(--red) 10%, transparent);
+	--success-surface: color-mix(in srgb, var(--navy) 10%, transparent);
 }
 
 @theme {
@@ -31,9 +61,9 @@ body.site-shell {
 	min-height: 100vh;
 	color: var(--ink);
 	background:
-		radial-gradient(circle at top left, rgba(182, 64, 60, 0.18), transparent 28%),
-		radial-gradient(circle at 85% 12%, rgba(31, 54, 89, 0.15), transparent 22%),
-		linear-gradient(180deg, #f8f3e7 0%, var(--paper) 42%, #efe7d7 100%);
+		radial-gradient(circle at top left, var(--page-top-tint), transparent 28%),
+		radial-gradient(circle at 85% 12%, var(--page-side-tint), transparent 22%),
+		linear-gradient(180deg, var(--page-wash-start) 0%, var(--paper) 42%, var(--page-wash-end) 100%);
 	font-family: var(--font-sans);
 }
 
@@ -81,7 +111,7 @@ body.site-shell {
 	padding: 0.65rem 1rem;
 	border: 1px solid var(--line);
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.58);
+	background: var(--header-link-surface);
 	backdrop-filter: blur(10px);
 }
 
@@ -117,9 +147,9 @@ body.site-shell {
 .hero-panel {
 	padding: 1.5rem;
 	background:
-		linear-gradient(135deg, rgba(31, 54, 89, 0.96), rgba(22, 39, 67, 0.92)),
-		linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
-	color: #f8f4ea;
+		linear-gradient(135deg, var(--hero-panel-start), var(--hero-panel-end)),
+		linear-gradient(180deg, var(--button-secondary-surface), transparent);
+	color: var(--hero-text);
 }
 
 .hero-panel::after {
@@ -129,7 +159,7 @@ body.site-shell {
 	width: 18rem;
 	aspect-ratio: 1;
 	border-radius: 999px;
-	background: radial-gradient(circle, rgba(182, 64, 60, 0.38), rgba(182, 64, 60, 0));
+	background: radial-gradient(circle, var(--hero-glow), transparent);
 }
 
 .site-mark,
@@ -148,8 +178,8 @@ body.site-shell {
 	display: inline-flex;
 	padding: 0.5rem 0.8rem;
 	border-radius: 999px;
-	border: 1px solid rgba(255, 255, 255, 0.16);
-	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid var(--hero-badge-border);
+	background: var(--hero-badge-surface);
 }
 
 .hero-grid {
@@ -195,7 +225,7 @@ body.site-shell {
 .hero-copy {
 	max-width: 44rem;
 	margin: 1.2rem 0 0;
-	color: rgba(248, 244, 234, 0.84);
+	color: var(--hero-text-soft);
 }
 
 .hero-actions {
@@ -231,7 +261,7 @@ body.site-shell {
 
 .button-primary {
 	background: var(--red);
-	color: #fff4ef;
+	color: var(--button-primary-text);
 }
 
 .button-primary:hover {
@@ -239,23 +269,23 @@ body.site-shell {
 }
 
 .button-secondary {
-	border-color: rgba(255, 255, 255, 0.22);
-	color: #f8f4ea;
-	background: rgba(255, 255, 255, 0.06);
+	border-color: var(--button-secondary-border);
+	color: var(--button-secondary-text);
+	background: var(--button-secondary-surface);
 }
 
 .hero-aside {
 	align-self: end;
 	padding: 1.2rem;
 	border-radius: 1.3rem;
-	background: rgba(255, 255, 255, 0.08);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: var(--hero-aside-surface);
+	border: 1px solid var(--hero-aside-border);
 }
 
 .hero-notes {
 	margin: 1rem 0 0;
 	padding-left: 1.1rem;
-	color: rgba(248, 244, 234, 0.84);
+	color: var(--hero-text-soft);
 }
 
 .content-section {
@@ -327,7 +357,7 @@ body.site-shell {
 	padding: 1.2rem;
 	border-radius: 1.25rem;
 	border: 1px solid var(--line);
-	background: rgba(255, 252, 247, 0.84);
+	background: var(--info-card-surface);
 }
 
 .info-card h3 {
@@ -337,7 +367,7 @@ body.site-shell {
 }
 
 .action-card {
-	background: linear-gradient(180deg, rgba(255, 250, 243, 0.94), rgba(238, 228, 210, 0.9));
+	background: linear-gradient(180deg, var(--action-card-start), var(--action-card-end));
 }
 
 .text-link {
@@ -355,7 +385,7 @@ body.site-shell {
 
 .accent-section {
 	background:
-		linear-gradient(135deg, rgba(253, 247, 236, 0.96), rgba(242, 232, 214, 0.92)),
+		linear-gradient(135deg, var(--accent-start), var(--accent-end)),
 		var(--card);
 }
 
@@ -410,7 +440,7 @@ body.site-shell {
 	padding: 1.25rem;
 	border-radius: 1.4rem;
 	border: 1px solid var(--line);
-	background: rgba(255, 251, 245, 0.9);
+	background: var(--form-surface);
 }
 
 .contact-form {
@@ -438,9 +468,9 @@ body.site-shell {
 .form-field select,
 .form-field textarea {
 	width: 100%;
-	border: 1px solid rgba(28, 36, 49, 0.18);
+	border: 1px solid var(--input-border);
 	border-radius: 0.95rem;
-	background: rgba(255, 255, 255, 0.9);
+	background: var(--input-surface);
 	padding: 0.8rem 0.95rem;
 	color: var(--ink);
 }
@@ -456,7 +486,7 @@ body.site-shell {
 .form-errors {
 	padding: 0.9rem 1rem;
 	border-radius: 1rem;
-	background: rgba(182, 64, 60, 0.1);
+	background: var(--error-surface);
 	color: var(--red-deep);
 }
 
@@ -469,7 +499,7 @@ body.site-shell {
 .form-success {
 	padding: 0.9rem 1rem;
 	border-radius: 1rem;
-	background: rgba(31, 54, 89, 0.1);
+	background: var(--success-surface);
 	color: var(--navy-deep);
 }
 
@@ -486,7 +516,7 @@ body.site-shell {
 	padding: 1.2rem;
 	border-radius: 1.25rem;
 	border: 1px solid var(--line);
-	background: rgba(31, 54, 89, 0.06);
+	background: var(--contact-surface);
 }
 
 .social-links {

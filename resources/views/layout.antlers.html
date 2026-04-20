@@ -6,6 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ if title }}{{ title }} | {{ /if }}{{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}</title>
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        <style>
+            :root {
+                --paper: {{ if site_settings:theme_paper }}{{ site_settings:theme_paper }}{{ else }}#f3efe3{{ /if }};
+                --paper-strong: {{ if site_settings:theme_paper_strong }}{{ site_settings:theme_paper_strong }}{{ else }}#e8deca{{ /if }};
+                --ink: {{ if site_settings:theme_ink }}{{ site_settings:theme_ink }}{{ else }}#1c2431{{ /if }};
+                --ink-soft: {{ if site_settings:theme_ink_soft }}{{ site_settings:theme_ink_soft }}{{ else }}#4f5c6e{{ /if }};
+                --navy: {{ if site_settings:theme_navy }}{{ site_settings:theme_navy }}{{ else }}#1f3659{{ /if }};
+                --navy-deep: {{ if site_settings:theme_navy_deep }}{{ site_settings:theme_navy_deep }}{{ else }}#162743{{ /if }};
+                --red: {{ if site_settings:theme_red }}{{ site_settings:theme_red }}{{ else }}#b6403c{{ /if }};
+                --red-deep: {{ if site_settings:theme_red_deep }}{{ site_settings:theme_red_deep }}{{ else }}#8f2f2c{{ /if }};
+            }
+        </style>
         {{ captcha:head }}
     </head>
     <body class="site-shell">

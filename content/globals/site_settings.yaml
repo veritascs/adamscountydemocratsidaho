@@ -5,3 +5,11 @@ data:
   state_name: Idaho
   contact_email: mbechdel@gmail.com
   footer_blurb: 'Local volunteers working to strengthen civic life, widen participation, and support neighbors across Adams County.'
+  theme_paper: '#f3efe3'
+  theme_paper_strong: '#e8deca'
+  theme_ink: '#1c2431'
+  theme_ink_soft: '#4f5c6e'
+  theme_navy: '#1f3659'
+  theme_navy_deep: '#162743'
+  theme_red: '#b6403c'
+  theme_red_deep: '#8f2f2c'
