@@ -5,7 +5,8 @@ title: About
 template: default
 author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776612000
+updated_at: 1776705157
+protect: alt_password_protect_default
 ---
 ## About Adams County Democrats
 

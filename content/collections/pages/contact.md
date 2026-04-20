@@ -5,7 +5,8 @@ title: Contact
 template: contact
 author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776618142
+updated_at: 1776705163
+protect: alt_password_protect_default
 ---
 Use this form to get in touch with Adams County Democrats.
 
