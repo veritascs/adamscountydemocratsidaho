@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ if title }}{{ title }} | {{ /if }}{{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}</title>
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        {{ captcha:head }}
     </head>
     <body class="site-shell">
         <div class="site-frame">
