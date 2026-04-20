@@ -45,3 +45,137 @@ tabs:
             field:
               type: textarea
               display: Footer Blurb
+  theme:
+    display: Theme
+    sections:
+      -
+        display: Site Colors
+        fields:
+          -
+            handle: theme_paper
+            field:
+              type: color
+              display: Background Base
+              instructions: Used for the main page background and warm surface tones.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_paper_strong
+            field:
+              type: color
+              display: Background Accent
+              instructions: Used in gradients and secondary panels.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_ink
+            field:
+              type: color
+              display: Primary Text
+              instructions: Main body text and form text color.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_ink_soft
+            field:
+              type: color
+              display: Secondary Text
+              instructions: Supporting copy, notes, and less prominent text.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_navy
+            field:
+              type: color
+              display: Primary Brand Color
+              instructions: Used for dark sections, headings, and links.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_navy_deep
+            field:
+              type: color
+              display: Primary Brand Color Dark
+              instructions: Used for high-contrast headers and hero panels.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_red
+            field:
+              type: color
+              display: Accent Color
+              instructions: Used for primary buttons and highlights.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
+          -
+            handle: theme_red_deep
+            field:
+              type: color
+              display: Accent Color Dark
+              instructions: Used for hover states and strong accents.
+              allow_any: true
+              swatches:
+                - '#f3efe3'
+                - '#e8deca'
+                - '#1c2431'
+                - '#4f5c6e'
+                - '#1f3659'
+                - '#162743'
+                - '#b6403c'
+                - '#8f2f2c'
