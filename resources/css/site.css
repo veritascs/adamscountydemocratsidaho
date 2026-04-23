@@ -1241,6 +1241,7 @@ details[open] .accordion-summary::after {
 ───────────────────────────────────────────── */
 
 .site-footer--full {
+	margin-top: 1.5rem;
 	padding: 0;
 }
 
