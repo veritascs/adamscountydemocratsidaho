@@ -41,26 +41,45 @@
                 </label>
 
                 <nav class="site-header__nav" aria-label="Primary">
-                    {{ nav:main }}
-                        {{ if children }}
-                            <div class="nav-dropdown-wrap">
-                                <a href="{{ url }}" class="site-header__link nav-has-children">{{ title }}</a>
-                                <ul class="nav-dropdown">
-                                    {{ children }}
-                                        <li>
-                                            <a href="{{ url }}"
-                                               class="nav-dropdown__link"
-                                               {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
-                                                {{ title }}
-                                            </a>
-                                        </li>
-                                    {{ /children }}
-                                </ul>
+                    <div class="nav-panel">
+                        {{ nav handle="main" max_depth="3" }}
+                            <div class="nav-group">
+                                <a href="{{ url }}"
+                                   class="site-header__link nav-panel__link"
+                                   {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                    {{ title }}
+                                </a>
+
+                                {{ if children }}
+                                    <ul class="nav-panel__subnav">
+                                        {{ children }}
+                                            <li>
+                                                <a href="{{ url }}"
+                                                   class="nav-dropdown__link nav-panel__sublink"
+                                                   {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                                    {{ title }}
+                                                </a>
+
+                                                {{ if children }}
+                                                    <ul class="nav-panel__subsubnav">
+                                                        {{ children }}
+                                                            <li>
+                                                                <a href="{{ url }}"
+                                                                   class="nav-dropdown__link nav-panel__subsublink"
+                                                                   {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                                                    {{ title }}
+                                                                </a>
+                                                            </li>
+                                                        {{ /children }}
+                                                    </ul>
+                                                {{ /if }}
+                                            </li>
+                                        {{ /children }}
+                                    </ul>
+                                {{ /if }}
                             </div>
-                        {{ else }}
-                            <a href="{{ url }}" class="site-header__link">{{ title }}</a>
-                        {{ /if }}
-                    {{ /nav:main }}
+                        {{ /nav }}
+                    </div>
                 </nav>
             </header>
 

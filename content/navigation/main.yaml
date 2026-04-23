@@ -1,31 +1,7 @@
-tree:
-  -
-    entry: who-we-are
-    children:
-      -
-        entry: our-mission
-      -
-        entry: acd-bylaws
-      -
-        title: 'IDP Platform'
-        url: 'https://idahodemocrats.org'
-      -
-        entry: connect-with-community
-        children:
-          -
-            entry: acd-bookclub
-      -
-        entry: candidates
-  -
-    entry: engage
-    children:
-      -
-        entry: leadership-opportunities
-      -
-        entry: training-and-workshops
-      -
-        entry: acd-bookclub
-  -
-    entry: news-and-events
-  -
-    entry: voter-resources
+title: Main
+collections:
+  - candidates
+  - news_events
+  - pages
+max_depth: 5
+root: true

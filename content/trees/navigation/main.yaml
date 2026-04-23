@@ -1,0 +1,53 @@
+tree:
+  -
+    id: 1e30a0b9-3d63-4e70-9a15-cd606b6c74af
+    entry: home
+  -
+    id: 283f42a7-8fe5-4796-892e-07b139f99a7a
+    entry: news-and-events
+  -
+    id: 375f65ea-2271-4247-a0dc-b46899ab90a4
+    entry: voter-resources
+  -
+    id: dbdd4a46-0906-45c4-92df-7f5d6c7b2e9e
+    entry: who-we-are
+    children:
+      -
+        id: f515cfb2-0e0d-4b2d-9fa5-e869156390b9
+        entry: our-mission
+      -
+        id: f1925456-f1d4-411d-85ed-16b7a652717c
+        entry: acd-bylaws
+      -
+        id: a046e159-3da4-4f1e-b208-bd5beb86577e
+        title: 'IDP Platform'
+        url: 'https://idahodemocrats.org'
+      -
+        id: d33d3ad0-264e-419f-ba0e-085baac8ab39
+        entry: connect-with-community
+        children:
+          -
+            id: e3469fe1-012b-4bb3-ba17-629985719e52
+            entry: acd-bookclub
+      -
+        id: 36704ba8-7b80-4b71-bcef-85c02a44ae4a
+        entry: candidates
+  -
+    id: 8e951d6c-1988-4592-b324-f00cdb432209
+    entry: engage
+    children:
+      -
+        id: 0c8014f0-9e68-4aac-9d63-5913fd33aa2a
+        entry: leadership-opportunities
+      -
+        id: 0d3b41ca-4b9b-4340-8558-821852381fee
+        entry: training-and-workshops
+      -
+        id: e7a08763-4b60-4ad3-80a9-453f74e3710f
+        entry: acd-bookclub
+  -
+    id: 1240675b-0606-4e64-8e29-73cdf0abe9e2
+    entry: about
+  -
+    id: 35dfbcfc-92f4-4d28-baef-1f56d49691aa
+    entry: contact
