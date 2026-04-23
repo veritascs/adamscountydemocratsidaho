@@ -7,5 +7,4 @@ date: '2026-05-12 18:00'
 location: 'Council City Hall, Council, Idaho'
 topics:
   - local-events
-protect: alt_password_protect_default
 ---
