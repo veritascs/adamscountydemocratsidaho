@@ -1,0 +1,195 @@
+title: Landing Page
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Hero
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              validate:
+                - required
+          -
+            handle: hero_intro
+            field:
+              type: textarea
+              display: 'Hero Intro'
+      -
+        display: 'Email List CTA'
+        fields:
+          -
+            handle: email_cta_heading
+            field:
+              type: text
+              display: 'Heading'
+              instructions: 'Leave blank to hide this section.'
+          -
+            handle: email_cta_text
+            field:
+              type: textarea
+              display: 'Description'
+          -
+            handle: email_cta_label
+            field:
+              type: text
+              display: 'Button Label'
+          -
+            handle: email_cta_interest
+            field:
+              type: text
+              display: 'Prefill Interest Value'
+              instructions: 'Passed to the contact form as the interest query param.'
+      -
+        display: 'Link Cards'
+        fields:
+          -
+            handle: link_cards_heading
+            field:
+              type: text
+              display: 'Heading'
+              instructions: 'Leave blank to hide this section.'
+          -
+            handle: link_cards_intro
+            field:
+              type: textarea
+              display: 'Section Intro'
+          -
+            handle: link_cards
+            field:
+              type: grid
+              display: 'Cards'
+              add_row: 'Add Card'
+              fields:
+                -
+                  handle: card_title
+                  field:
+                    type: text
+                    display: Title
+                    required: true
+                -
+                  handle: card_summary
+                  field:
+                    type: textarea
+                    display: Summary
+                -
+                  handle: card_url
+                  field:
+                    type: text
+                    display: URL
+                -
+                  handle: card_new_tab
+                  field:
+                    type: toggle
+                    display: 'Open in new tab'
+                -
+                  handle: card_image
+                  field:
+                    type: assets
+                    display: Image
+                    container: assets
+                    max_files: 1
+      -
+        display: 'Accordion / Expandable Section'
+        fields:
+          -
+            handle: accordion_heading
+            field:
+              type: text
+              display: 'Heading'
+              instructions: 'Leave blank to hide this section.'
+          -
+            handle: accordion_items
+            field:
+              type: grid
+              display: Items
+              add_row: 'Add Item'
+              fields:
+                -
+                  handle: item_label
+                  field:
+                    type: text
+                    display: Label
+                    required: true
+                -
+                  handle: item_content
+                  field:
+                    type: textarea
+                    display: 'Description / Content'
+                -
+                  handle: item_url
+                  field:
+                    type: text
+                    display: 'Link URL'
+                -
+                  handle: item_url_label
+                  field:
+                    type: text
+                    display: 'Link Label'
+      -
+        display: 'External Links Section'
+        fields:
+          -
+            handle: external_links_heading
+            field:
+              type: text
+              display: 'Heading'
+              instructions: 'Leave blank to hide this section.'
+          -
+            handle: external_links_intro
+            field:
+              type: textarea
+              display: 'Section Intro'
+          -
+            handle: external_links
+            field:
+              type: grid
+              display: Links
+              add_row: 'Add External Link'
+              fields:
+                -
+                  handle: link_label
+                  field:
+                    type: text
+                    display: Label
+                    required: true
+                -
+                  handle: link_url
+                  field:
+                    type: text
+                    display: URL
+                -
+                  handle: link_description
+                  field:
+                    type: textarea
+                    display: Description
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

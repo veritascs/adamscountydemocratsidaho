@@ -33,12 +33,16 @@ tabs:
               type: select
               display: What are you interested in?
               options:
-                Attend a meeting: Attend a meeting
-                Volunteer: Volunteer
-                Stay informed: Stay informed
-                Candidate support: Candidate support
-                General questions: General questions
-              placeholder: Choose one
+                'Join email list': 'Join our email list'
+                'Attend a meeting': 'Attend a meeting'
+                'Volunteer': 'Volunteer / Get involved'
+                'Join a precinct team': 'Join a precinct team'
+                'Leadership opportunities': 'Leadership opportunities'
+                'Training and workshops': 'Training and workshops'
+                'ACD book club signup': 'ACD book club signup'
+                'Candidate support': 'Candidate support'
+                'General questions': 'General questions'
+              placeholder: 'Choose one'
           -
             handle: message
             field:

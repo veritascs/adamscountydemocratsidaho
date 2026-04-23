@@ -1,0 +1,50 @@
+<main class="candidates-shell">
+    <section class="content-section page-hero compact-hero">
+        <div class="section-heading-block">
+            <p class="section-kicker">Adams County Democrats</p>
+            <h1 class="page-title">{{ title }}</h1>
+            {{ if sub_title }}
+                <p class="section-intro page-intro">{{ sub_title }}</p>
+            {{ /if }}
+        </div>
+    </section>
+
+    <section class="content-section candidates-section">
+        {{ collection:candidates sort="order:asc|title:asc" }}
+            {{ if no_results }}
+                <p class="candidates-empty">No candidate profiles have been added yet. Check back as the election approaches.</p>
+            {{ else }}
+                <div class="card-grid candidates-grid">
+                    {{ results }}
+                        <article class="info-card candidate-card">
+                            {{ if photo }}
+                                <div class="candidate-photo-wrap">
+                                    {{ photo }}
+                                        <img src="{{ url }}" alt="Photo of {{ title }}" class="candidate-photo" loading="lazy" />
+                                    {{ /photo }}
+                                </div>
+                            {{ else }}
+                                <div class="candidate-photo-wrap candidate-photo-placeholder">
+                                    <span>{{ title | slice:0:1 }}</span>
+                                </div>
+                            {{ /if }}
+
+                            <div class="candidate-info">
+                                <h2 class="candidate-name">{{ title }}</h2>
+                                {{ if role }}
+                                    <p class="candidate-role">{{ role }}</p>
+                                {{ /if }}
+                                {{ if bio }}
+                                    <div class="candidate-bio prose-copy">{{ bio | markdown }}</div>
+                                {{ /if }}
+                                {{ if website }}
+                                    <a href="{{ website }}" class="text-link" target="_blank" rel="noopener noreferrer">Visit website →</a>
+                                {{ /if }}
+                            </div>
+                        </article>
+                    {{ /results }}
+                </div>
+            {{ /if }}
+        {{ /collection:candidates }}
+    </section>
+</main>

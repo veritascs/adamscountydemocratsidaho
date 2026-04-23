@@ -1,0 +1,96 @@
+<main class="news-events-shell">
+    <section class="content-section page-hero compact-hero">
+        <div class="section-heading-block">
+            <p class="section-kicker">What's happening</p>
+            <h1 class="page-title">{{ title }}</h1>
+            {{ if content }}
+                <p class="section-intro page-intro">{{ content | markdown | strip_tags }}</p>
+            {{ /if }}
+        </div>
+
+        {{# External resource links at top of page #}}
+        {{ if page_links }}
+            <div class="ne-resource-links">
+                {{ if page_links_heading }}
+                    <p class="section-kicker">{{ page_links_heading }}</p>
+                {{ /if }}
+                <ul class="ne-resource-list">
+                    {{ page_links }}
+                        <li>
+                            <a href="{{ url }}" class="ne-resource-link" target="_blank" rel="noopener noreferrer">
+                                {{ label }} ↗
+                            </a>
+                        </li>
+                    {{ /page_links }}
+                </ul>
+            </div>
+        {{ /if }}
+    </section>
+
+    {{# Filter tabs - news vs events vs all #}}
+    <section class="content-section ne-listing-section">
+        <div class="ne-filter-bar">
+            <a href="{{ current_url }}" class="ne-filter-tab {{ if !get:type }}ne-filter-tab--active{{ /if }}">All</a>
+            <a href="{{ current_url }}?type=event" class="ne-filter-tab {{ if get:type == 'event' }}ne-filter-tab--active{{ /if }}">Events</a>
+            <a href="{{ current_url }}?type=news" class="ne-filter-tab {{ if get:type == 'news' }}ne-filter-tab--active{{ /if }}">News</a>
+        </div>
+
+        {{ collection:news_events
+            sort="date:desc|title:asc"
+            :entry_type:is="get:type ?? null"
+        }}
+            {{ if no_results }}
+                <p class="ne-empty">No items found. Check back soon.</p>
+            {{ else }}
+                <div class="card-grid ne-grid">
+                    {{ results }}
+                        <article class="info-card ne-card {{ if entry_type == 'event' }}ne-card--event{{ else }}ne-card--news{{ /if }}">
+                            {{ if image }}
+                                <div class="ne-card-image">
+                                    {{ image }}
+                                        <img src="{{ url }}" alt="{{ alt }}" loading="lazy" />
+                                    {{ /image }}
+                                </div>
+                            {{ /if }}
+
+                            <div class="ne-card-body">
+                                <div class="ne-card-meta">
+                                    <span class="ne-type-badge ne-type-badge--{{ entry_type }}">{{ entry_type | upper }}</span>
+                                    {{ if entry_type == 'event' && date }}
+                                        <span class="ne-date">{{ date format="F j, Y" }}</span>
+                                    {{ /if }}
+                                </div>
+
+                                <h2 class="ne-card-title">{{ title }}</h2>
+
+                                {{ if entry_type == 'event' && location }}
+                                    <p class="ne-location">📍 {{ location }}</p>
+                                {{ /if }}
+
+                                {{ if description }}
+                                    <div class="ne-description prose-copy">{{ description | markdown }}</div>
+                                {{ /if }}
+
+                                {{ if topics }}
+                                    <div class="ne-topics">
+                                        {{ topics }}
+                                            <a href="/news-and-events?topic={{ slug }}" class="ne-topic-tag">{{ title }}</a>
+                                        {{ /topics }}
+                                    </div>
+                                {{ /if }}
+
+                                {{ if link }}
+                                    <a href="{{ link }}" class="text-link" target="_blank" rel="noopener noreferrer">
+                                        {{ if entry_type == 'event' }}View event details{{ else }}Read full article{{ /if }} →
+                                    </a>
+                                {{ /if }}
+
+                                <a href="{{ url }}" class="text-link ne-permalink">View this entry →</a>
+                            </div>
+                        </article>
+                    {{ /results }}
+                </div>
+            {{ /if }}
+        {{ /collection:news_events }}
+    </section>
+</main>

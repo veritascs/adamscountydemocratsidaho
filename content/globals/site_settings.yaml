@@ -3,6 +3,7 @@ data:
   organization_name: 'Adams County Democrats'
   county_name: 'Adams County'
   state_name: Idaho
+  logo: acd-logo3.png
   contact_email: mbechdel@gmail.com
   footer_blurb: 'Local volunteers working to strengthen civic life, widen participation, and support neighbors across Adams County.'
   theme_paper: '#f3efe3'

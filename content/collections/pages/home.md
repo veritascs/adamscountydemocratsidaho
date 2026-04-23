@@ -79,6 +79,11 @@ contact_text: |-
   Once you have those details ready, update the site settings in the Statamic control panel and this page will automatically surface them.
 author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776705152
+updated_at: 1776972633
 protect: alt_password_protect_default
+hero_image: advic_zoombackgrounds-14.png
+hero_images:
+  - advic_zoombackgrounds-14.png
+  - 27002.jpg
+  - acd-logo3.png
 ---

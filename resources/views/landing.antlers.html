@@ -1,0 +1,128 @@
+<main class="landing-page-shell">
+    <section class="content-section landing-hero">
+        <div class="section-heading-block">
+            <p class="section-kicker">{{ title }}</p>
+            <h1 class="page-title">{{ title }}</h1>
+            {{ if hero_intro }}
+                <p class="section-intro page-intro">{{ hero_intro }}</p>
+            {{ /if }}
+        </div>
+    </section>
+
+    {{# ── Email CTA section ── #}}
+    {{ if email_cta_heading }}
+        <section class="content-section landing-cta-section">
+            <div class="landing-cta-block">
+                <div class="section-heading-block">
+                    <p class="section-kicker">Stay connected</p>
+                    <h2>{{ email_cta_heading }}</h2>
+                </div>
+                {{ if email_cta_text }}
+                    <p class="section-intro">{{ email_cta_text }}</p>
+                {{ /if }}
+                <div class="cta-actions">
+                    <a href="/contact?interest={{ email_cta_interest | urlencode }}" class="button button-primary">
+                        {{ email_cta_label ?? 'Sign up' }}
+                    </a>
+                </div>
+            </div>
+        </section>
+    {{ /if }}
+
+    {{# ── Link cards section ── #}}
+    {{ if link_cards_heading }}
+        <section class="content-section landing-cards-section">
+            <div class="section-heading-block">
+                <p class="section-kicker">Explore</p>
+                <h2>{{ link_cards_heading }}</h2>
+            </div>
+            {{ if link_cards_intro }}
+                <p class="section-intro">{{ link_cards_intro }}</p>
+            {{ /if }}
+            {{ if link_cards }}
+                <div class="card-grid landing-link-grid">
+                    {{ link_cards }}
+                        <article class="info-card landing-link-card">
+                            {{ if card_image }}
+                                <div class="card-image-wrap">
+                                    {{ card_image }}
+                                        <img src="{{ url }}" alt="{{ alt }}" class="card-img" loading="lazy" />
+                                    {{ /card_image }}
+                                </div>
+                            {{ /if }}
+                            <h3>{{ card_title }}</h3>
+                            {{ if card_summary }}
+                                <p>{{ card_summary }}</p>
+                            {{ /if }}
+                            {{ if card_url }}
+                                <a href="{{ card_url }}"
+                                   class="text-link"
+                                   {{ if card_new_tab }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                    Learn more →
+                                </a>
+                            {{ /if }}
+                        </article>
+                    {{ /link_cards }}
+                </div>
+            {{ /if }}
+        </section>
+    {{ /if }}
+
+    {{# ── Accordion section ── #}}
+    {{ if accordion_heading }}
+        <section class="content-section landing-accordion-section">
+            <div class="section-heading-block">
+                <p class="section-kicker">Get involved</p>
+                <h2>{{ accordion_heading }}</h2>
+            </div>
+            {{ if accordion_items }}
+                <div class="accordion-list">
+                    {{ accordion_items }}
+                        <details class="accordion-item">
+                            <summary class="accordion-summary">{{ item_label }}</summary>
+                            <div class="accordion-body">
+                                {{ if item_content }}
+                                    <p>{{ item_content }}</p>
+                                {{ /if }}
+                                {{ if item_url }}
+                                    <a href="{{ item_url }}" class="text-link">
+                                        {{ item_url_label ?? 'Learn more' }} →
+                                    </a>
+                                {{ /if }}
+                            </div>
+                        </details>
+                    {{ /accordion_items }}
+                </div>
+            {{ /if }}
+        </section>
+    {{ /if }}
+
+    {{# ── External links section ── #}}
+    {{ if external_links_heading }}
+        <section class="content-section landing-ext-section accent-section">
+            <div class="section-heading-block">
+                <p class="section-kicker">Resources</p>
+                <h2>{{ external_links_heading }}</h2>
+            </div>
+            {{ if external_links_intro }}
+                <p class="section-intro">{{ external_links_intro }}</p>
+            {{ /if }}
+            {{ if external_links }}
+                <div class="ext-links-grid">
+                    {{ external_links }}
+                        <a href="{{ link_url }}"
+                           class="ext-link-card"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <span class="ext-link-label">{{ link_label }}</span>
+                            {{ if link_description }}
+                                <span class="ext-link-desc">{{ link_description }}</span>
+                            {{ /if }}
+                            <span class="ext-link-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    {{ /external_links }}
+                </div>
+            {{ /if }}
+        </section>
+    {{ /if }}
+</main>

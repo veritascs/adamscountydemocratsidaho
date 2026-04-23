@@ -1,0 +1,54 @@
+title: Candidate
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Name
+              required: true
+              validate:
+                - required
+          -
+            handle: role
+            field:
+              type: text
+              display: 'Office / Role'
+              instructions: 'e.g., County Commissioner, School Board'
+          -
+            handle: photo
+            field:
+              type: assets
+              display: Photo
+              container: assets
+              max_files: 1
+          -
+            handle: bio
+            field:
+              type: markdown
+              display: Bio
+          -
+            handle: website
+            field:
+              type: link
+              display: Website
+          -
+            handle: order
+            field:
+              type: integer
+              display: Display Order
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

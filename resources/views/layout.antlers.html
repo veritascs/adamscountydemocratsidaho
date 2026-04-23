@@ -23,17 +23,97 @@
     <body class="site-shell">
         <div class="site-frame">
             <header class="site-header">
+                {{# Brand / logo #}}
                 <a href="/" class="site-header__brand">
-                    {{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}
+                    {{ if site_settings:logo }}
+                        {{ site_settings:logo }}
+                            <img src="{{ url }}" alt="{{ site_settings:organization_name ?? site:name }}" class="site-logo-img" />
+                        {{ /site_settings:logo }}
+                    {{ else }}
+                        {{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}
+                    {{ /if }}
                 </a>
 
+                {{# Mobile menu toggle (CSS-only) #}}
+                <input type="checkbox" id="nav-toggle" class="nav-toggle-check" aria-hidden="true" />
+                <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </label>
+
                 <nav class="site-header__nav" aria-label="Primary">
-                    <a href="/" class="site-header__link">Home</a>
-                    <a href="/about" class="site-header__link">About</a>
+                    {{ nav:main }}
+                        {{ if children }}
+                            <div class="nav-dropdown-wrap">
+                                <a href="{{ url }}" class="site-header__link nav-has-children">{{ title }}</a>
+                                <ul class="nav-dropdown">
+                                    {{ children }}
+                                        <li>
+                                            <a href="{{ url }}"
+                                               class="nav-dropdown__link"
+                                               {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                                {{ title }}
+                                            </a>
+                                        </li>
+                                    {{ /children }}
+                                </ul>
+                            </div>
+                        {{ else }}
+                            <a href="{{ url }}" class="site-header__link">{{ title }}</a>
+                        {{ /if }}
+                    {{ /nav:main }}
                 </nav>
             </header>
 
             {{ template_content }}
+
+            <footer class="site-footer site-footer--full">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand-col">
+                        {{ if site_settings:logo }}
+                            {{ site_settings:logo }}
+                                <img src="{{ url }}" alt="{{ site_settings:organization_name ?? site:name }}" class="footer-logo-img" />
+                            {{ /site_settings:logo }}
+                        {{ else }}
+                            <p class="footer-org-name">{{ site_settings:organization_name }}</p>
+                        {{ /if }}
+                        {{ if site_settings:footer_blurb }}
+                            <p class="footer-blurb">{{ site_settings:footer_blurb }}</p>
+                        {{ /if }}
+                    </div>
+
+                    <div class="footer-col footer-contact-col">
+                        <p class="footer-col-heading">Contact</p>
+                        {{ if site_settings:contact_phone }}
+                            <a href="tel:{{ site_settings:contact_phone | replace:' ':'' | replace:'(':'' | replace:')':'' | replace:'-':'' }}" class="footer-contact-line">
+                                📞 {{ site_settings:contact_phone }}
+                            </a>
+                        {{ /if }}
+                        {{ if site_settings:contact_email }}
+                            <a href="mailto:{{ site_settings:contact_email }}" class="footer-contact-line">
+                                ✉ {{ site_settings:contact_email }}
+                            </a>
+                        {{ /if }}
+                        <a href="/contact" class="button button-primary footer-cta-btn">Send us a message</a>
+                    </div>
+
+                    <div class="footer-col footer-links-col">
+                        <p class="footer-col-heading">Connect</p>
+                        {{ if site_settings:facebook_url }}
+                            <a href="{{ site_settings:facebook_url }}" class="footer-social-link" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+                        {{ /if }}
+                        {{ if site_settings:instagram_url }}
+                            <a href="{{ site_settings:instagram_url }}" class="footer-social-link" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                        {{ /if }}
+                        {{ if site_settings:donation_url }}
+                            <a href="{{ site_settings:donation_url }}" class="footer-social-link" target="_blank" rel="noopener noreferrer">Donate ↗</a>
+                        {{ /if }}
+                    </div>
+                </div>
+
+                <div class="footer-legal">
+                    <p>{{ site_settings:organization_name }}{{ if site_settings:county_name }}, {{ site_settings:county_name }}{{ /if }}{{ if site_settings:state_name }}, {{ site_settings:state_name }}{{ /if }}</p>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

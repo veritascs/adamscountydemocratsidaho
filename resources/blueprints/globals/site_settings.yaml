@@ -21,10 +21,24 @@ tabs:
               type: text
               display: State Name
           -
+            handle: logo
+            field:
+              type: assets
+              display: Logo
+              container: assets
+              max_files: 1
+              instructions: 'Upload a logo image. Displayed in the top-left header. If blank, organization name text is used.'
+          -
             handle: contact_email
             field:
               type: text
               display: Contact Email
+          -
+            handle: contact_phone
+            field:
+              type: text
+              display: Contact Phone
+              instructions: 'e.g., (208) 555-0100'
           -
             handle: facebook_url
             field:
