@@ -40,21 +40,6 @@ tabs:
               display: Contact Phone
               instructions: 'e.g., (208) 555-0100'
           -
-            handle: facebook_url
-            field:
-              type: text
-              display: Facebook URL
-          -
-            handle: instagram_url
-            field:
-              type: text
-              display: Instagram URL
-          -
-            handle: donation_url
-            field:
-              type: text
-              display: Donation URL
-          -
             handle: footer_blurb
             field:
               type: textarea

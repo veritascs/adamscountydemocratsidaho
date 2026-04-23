@@ -603,9 +603,15 @@ body.site-shell {
 .site-logo-img,
 .footer-logo-img {
 	display: block;
-	max-height: 2.6rem;
+	max-height: 4.0rem;
 	width: auto;
 	object-fit: contain;
+}
+
+.footer-brand-col .footer-logo-img {
+	align-self: flex-start;
+	margin-left: 0;
+	margin-right: auto;
 }
 
 /* ─────────────────────────────────────────────
@@ -1253,7 +1259,22 @@ details[open] .accordion-summary::after {
 
 @media (min-width: 640px) {
 	.footer-grid {
-		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+		align-items: start;
+	}
+
+	.footer-brand-col {
+		justify-self: start;
+	}
+
+	.footer-contact-col {
+		justify-self: end;
+		align-items: flex-end;
+		text-align: right;
+	}
+
+	.footer-contact-col .footer-cta-btn {
+		align-self: flex-end;
 	}
 }
 
@@ -1303,19 +1324,6 @@ details[open] .accordion-summary::after {
 .footer-cta-btn {
 	align-self: flex-start;
 	margin-top: 0.4rem;
-}
-
-.footer-social-link {
-	display: block;
-	color: var(--navy);
-	text-decoration: none;
-	font-weight: 700;
-	font-size: 0.9rem;
-	transition: color 140ms ease;
-}
-
-.footer-social-link:hover {
-	color: var(--red-deep);
 }
 
 .footer-legal {
