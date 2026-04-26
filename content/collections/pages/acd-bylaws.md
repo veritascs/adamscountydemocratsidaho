@@ -4,7 +4,10 @@ blueprint: pages
 title: 'ACD Bylaws'
 template: default
 sub_title: 'Governing rules of the Adams County Democratic Party.'
-protect: alt_password_protect_default
+protect: none
+author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228831
 ---
 ## Adams County Democratic Party Bylaws
 

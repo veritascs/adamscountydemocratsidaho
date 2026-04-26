@@ -4,7 +4,10 @@ blueprint: pages
 title: 'ACD Book Club'
 template: default
 sub_title: 'Reading and discussion for curious Democrats in Adams County.'
-protect: alt_password_protect_default
+protect: none
+author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228859
 ---
 ## ACD Book Club
 

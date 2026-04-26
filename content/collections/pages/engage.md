@@ -57,5 +57,7 @@ external_links:
     link_label: 'IDP LGBTQI+ Caucus'
     link_url: 'https://idahodemocrats.org'
     link_description: 'A welcoming space for LGBTQI+ Democrats and allies working for a more inclusive Idaho.'
-protect: alt_password_protect_default
+protect: none
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228845
 ---

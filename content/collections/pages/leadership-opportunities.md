@@ -4,7 +4,10 @@ blueprint: pages
 title: 'Leadership Opportunities'
 template: default
 sub_title: 'Get involved in the leadership of the Adams County Democratic Party.'
-protect: alt_password_protect_default
+protect: none
+author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228850
 ---
 ## Leadership Opportunities
 

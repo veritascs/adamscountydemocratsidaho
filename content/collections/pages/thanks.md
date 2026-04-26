@@ -5,8 +5,8 @@ title: Thanks
 template: default
 author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776705174
-protect: alt_password_protect_default
+updated_at: 1777228884
+protect: none
 ---
 ## Thanks for reaching out
 

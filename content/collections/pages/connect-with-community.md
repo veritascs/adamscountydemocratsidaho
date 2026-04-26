@@ -16,6 +16,7 @@ link_cards:
     card_title: 'ACD Book Club Signup'
     card_summary: 'Sign up to join the book club and be notified about upcoming selections and meeting dates.'
     card_url: /engage/acd-bookclub
+    card_new_tab: false
 external_links_heading: 'More Ways to Engage'
 external_links:
   -
@@ -23,5 +24,7 @@ external_links:
     link_label: 'Protect Democracy'
     link_url: 'https://protectdemocracy.org'
     link_description: 'Join a national nonpartisan effort to protect democratic institutions and norms.'
-protect: alt_password_protect_default
+protect: none
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228836
 ---

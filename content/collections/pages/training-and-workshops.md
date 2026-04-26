@@ -4,7 +4,10 @@ blueprint: pages
 title: 'Training and Workshops'
 template: default
 sub_title: 'Build your civic skills and learn how to make a real difference.'
-protect: alt_password_protect_default
+protect: none
+author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228854
 ---
 ## Training and Workshops
 

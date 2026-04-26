@@ -17,8 +17,8 @@ page_links:
     id: ne-link-3
     label: 'Idaho 50501 News'
     url: 'https://50501idaho.com'
-protect: alt_password_protect_default
+protect: none
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776971283
+updated_at: 1777228863
 ---
 Local news and upcoming events from Adams County Democrats and the broader Idaho Democratic community.

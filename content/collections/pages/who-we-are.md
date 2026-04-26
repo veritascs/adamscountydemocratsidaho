@@ -37,7 +37,7 @@ link_cards:
     card_summary: 'Meet the Democrats running for local office and learn about their backgrounds and priorities.'
     card_url: /who-we-are/candidates
     card_new_tab: false
-protect: alt_password_protect_default
+protect: none
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776972688
+updated_at: 1777228821
 ---

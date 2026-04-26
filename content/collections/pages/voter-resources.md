@@ -17,5 +17,7 @@ external_links:
     link_label: 'Idaho Voter Registration'
     link_url: 'https://idahovotes.gov'
     link_description: 'Register to vote, check your registration, and find your polling place at the official Idaho state elections site.'
-protect: alt_password_protect_default
+protect: none
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228868
 ---

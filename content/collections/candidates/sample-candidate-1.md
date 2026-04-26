@@ -1,5 +1,6 @@
 ---
 id: sample-candidate-1
+blueprint: candidate
 title: 'Jane Doe'
 role: 'County Commissioner'
 bio: |-
@@ -7,5 +8,7 @@ bio: |-
 
   Jane has served on the Adams County Planning and Zoning board for six years and has been a longtime advocate for public school funding.
 order: 1
-protect: alt_password_protect_default
+protect: none
+updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
+updated_at: 1777228933
 ---
