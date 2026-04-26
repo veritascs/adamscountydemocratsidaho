@@ -133,8 +133,8 @@
     </section>
 
     {{# Latest news preview #}}
-    {{ collection:news_events limit="3" sort="date:desc|id:desc" }}
-        {{ if total_results > 0 }}
+    {{ collection:news_events limit="3" sort="date:desc|id:desc" as="entries" }}
+        {{ if entries }}
             <section class="content-section" id="news">
                 <div class="split-heading">
                     <div class="section-heading-block">
@@ -144,7 +144,7 @@
                     <a href="/news-and-events" class="text-link">See all →</a>
                 </div>
                 <div class="card-grid event-grid">
-                    {{ results }}
+                    {{ entries }}
                         <article class="info-card event-card">
                             <p class="card-meta">
                                 <span class="ne-type-badge ne-type-badge--{{ entry_type }}">{{ entry_type | upper }}</span>
@@ -156,7 +156,7 @@
                             {{ /if }}
                             <a href="{{ url }}" class="text-link">Read more →</a>
                         </article>
-                    {{ /results }}
+                    {{ /entries }}
                 </div>
             </section>
         {{ /if }}
