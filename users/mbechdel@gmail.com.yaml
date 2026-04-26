@@ -1,5 +1,6 @@
-name: 'Max Bechdel'
+name: 'Adams County Democrats'
 super: true
+avatar: acd-logo3.png
 id: a06d34be-7b9c-4249-9727-be8d4d7d25a7
 password_hash: $2y$12$1HKW./y/z9HHyiHDDYzeMe1Xj/C/FGnX3MQRRMU6hJSgBXBGcUfuu
 preferences:
