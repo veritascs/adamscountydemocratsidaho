@@ -1,0 +1,46 @@
+<main class="news-events-shell">
+    <section class="content-section page-hero compact-hero">
+        <div class="ne-detail-meta">
+            <a href="/news-and-events" class="ne-back-link">← Back to News & Events</a>
+            <span class="ne-type-badge ne-type-badge--{{ entry_type }}">{{ entry_type | upper }}</span>
+            {{ if entry_type == 'event' && date }}
+                <span class="ne-date">{{ date format="F j, Y · g:ia" }}</span>
+            {{ /if }}
+        </div>
+        <h1 class="page-title">{{ title }}</h1>
+
+        {{ if entry_type == 'event' && location }}
+            <p class="ne-location">📍 {{ location }}</p>
+        {{ /if }}
+
+        {{ if topics }}
+            <div class="ne-topics">
+                {{ topics }}
+                    <a href="/news-and-events?topic={{ slug }}" class="ne-topic-tag">{{ title }}</a>
+                {{ /topics }}
+            </div>
+        {{ /if }}
+    </section>
+
+    {{ if image }}
+        <section class="content-section ne-feature-image-section">
+            {{ image }}
+                <img src="{{ url }}" alt="{{ alt }}" class="ne-feature-image" loading="eager" />
+            {{ /image }}
+        </section>
+    {{ /if }}
+
+    <section class="content-section page-body-section">
+        <article class="page-prose prose-copy">
+            {{ description | markdown }}
+        </article>
+
+        {{ if link }}
+            <div class="ne-detail-link">
+                <a href="{{ link }}" class="button button-primary" target="_blank" rel="noopener noreferrer">
+                    {{ if entry_type == 'event' }}View event details & RSVP{{ else }}Read the full article{{ /if }}
+                </a>
+            </div>
+        {{ /if }}
+    </section>
+</main>

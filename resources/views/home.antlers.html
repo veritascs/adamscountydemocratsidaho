@@ -2,7 +2,7 @@
     <section class="hero-panel">
         <div class="site-mark">{{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ title }}{{ /if }}</div>
         <div class="hero-grid">
-            <div>
+            <div class="hero-content">
                 {{ if hero_eyebrow }}
                     <p class="eyebrow">{{ hero_eyebrow }}</p>
                 {{ /if }}
@@ -23,17 +23,60 @@
                 </div>
             </div>
 
-            <aside class="hero-aside">
-                <p class="aside-label">Why this site exists</p>
-                <p>
-                    A county party homepage should immediately explain who is organizing locally, what community concerns matter here, and how someone new can step into the work.
-                </p>
-                <ul class="hero-notes">
-                    <li>Keep the message local and grounded.</li>
-                    <li>Offer a real next step for new volunteers.</li>
-                    <li>Make events and contact information easy to find.</li>
-                </ul>
+            {{# Hero image — collage if multiple, single if one, placeholder aside if none #}}
+            <aside class="hero-aside hero-media-aside">
+                {{ if hero_images }}
+                    <div class="hero-collage">
+                        {{ hero_images }}
+                            <img src="{{ url }}" alt="{{ alt }}" class="collage-img" loading="{{ if count == 1 }}eager{{ else }}lazy{{ /if }}" />
+                        {{ /hero_images }}
+                    </div>
+                {{ elseif hero_image }}
+                    {{ hero_image }}
+                        <img src="{{ url }}" alt="{{ alt }}" class="hero-photo" loading="eager" />
+                    {{ /hero_image }}
+                {{ else }}
+                    <p class="aside-label">Why this site exists</p>
+                    <p>
+                        A county party homepage should immediately explain who is organizing locally, what community concerns matter here, and how someone new can step into the work.
+                    </p>
+                    <ul class="hero-notes">
+                        <li>Keep the message local and grounded.</li>
+                        <li>Offer a real next step for new volunteers.</li>
+                        <li>Make events and contact information easy to find.</li>
+                    </ul>
+                {{ /if }}
             </aside>
+        </div>
+    </section>
+
+    {{# Quick-nav cards — reduces text load on homepage, drives to key sections #}}
+    <section class="content-section home-quicknav-section">
+        <div class="card-grid home-quicknav-grid">
+            <a href="/who-we-are" class="info-card quicknav-card">
+                <p class="card-number">01</p>
+                <h3>Who We Are</h3>
+                <p>Our mission, bylaws, community links, and the candidates we support.</p>
+                <span class="text-link">Explore →</span>
+            </a>
+            <a href="/engage" class="info-card quicknav-card">
+                <p class="card-number">02</p>
+                <h3>Get Involved</h3>
+                <p>Join a precinct team, sign up for email updates, or learn about leadership roles.</p>
+                <span class="text-link">Get started →</span>
+            </a>
+            <a href="/news-and-events" class="info-card quicknav-card">
+                <p class="card-number">03</p>
+                <h3>News & Events</h3>
+                <p>Local events, party news, and resources to stay connected and informed.</p>
+                <span class="text-link">See what's happening →</span>
+            </a>
+            <a href="/voter-resources" class="info-card quicknav-card">
+                <p class="card-number">04</p>
+                <h3>Voter Resources</h3>
+                <p>Register to vote, find your polling place, and learn about Idaho elections.</p>
+                <span class="text-link">Find resources →</span>
+            </a>
         </div>
     </section>
 
@@ -65,26 +108,6 @@
         </div>
     </section>
 
-    <section class="content-section" id="events">
-        <div class="split-heading">
-            <div class="section-heading-block">
-                <p class="section-kicker">Community rhythm</p>
-                <h2>{{ events_heading }}</h2>
-            </div>
-            <p class="section-intro">{{ events_intro }}</p>
-        </div>
-
-        <div class="card-grid event-grid">
-            {{ event_highlights }}
-                <article class="info-card event-card">
-                    <p class="card-meta">{{ date_label }}</p>
-                    <h3>{{ title }}</h3>
-                    <p>{{ description }}</p>
-                </article>
-            {{ /event_highlights }}
-        </div>
-    </section>
-
     <section class="content-section accent-section" id="get-involved">
         <div class="split-heading">
             <div class="section-heading-block">
@@ -109,42 +132,33 @@
         </div>
     </section>
 
-    <section class="content-section contact-section" id="contact">
-        <div class="section-heading-block">
-            <p class="section-kicker">Contact</p>
-            <h2>{{ contact_heading }}</h2>
-        </div>
-
-        <div class="contact-panel">
-            <div class="prose-copy">
-                {{ contact_text | markdown }}
-            </div>
-
-            <div class="contact-details">
-                {{ if site_settings:contact_email }}
-                    <a href="mailto:{{ site_settings:contact_email }}" class="button button-primary">Email the county team</a>
-                    <p class="contact-line">{{ site_settings:contact_email }}</p>
-                {{ else }}
-                    <p class="contact-line">Add your public contact email in Site Settings when you are ready to publish it.</p>
-                {{ /if }}
-
-                <div class="social-links">
-                    {{ if site_settings:facebook_url }}
-                        <a href="{{ site_settings:facebook_url }}">Facebook</a>
-                    {{ /if }}
-                    {{ if site_settings:instagram_url }}
-                        <a href="{{ site_settings:instagram_url }}">Instagram</a>
-                    {{ /if }}
-                    {{ if site_settings:donation_url }}
-                        <a href="{{ site_settings:donation_url }}">Donate</a>
-                    {{ /if }}
+    {{# Latest news preview #}}
+    {{ collection:news_events limit="3" sort="date:desc|id:desc" as="entries" }}
+        {{ if entries }}
+            <section class="content-section" id="news">
+                <div class="split-heading">
+                    <div class="section-heading-block">
+                        <p class="section-kicker">Latest</p>
+                        <h2>News &amp; Events</h2>
+                    </div>
+                    <a href="/news-and-events" class="text-link">See all →</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <p>{{ site_settings:footer_blurb }}</p>
-        <p>{{ site_settings:organization_name }}{{ if site_settings:county_name }}, {{ site_settings:county_name }}{{ /if }}{{ if site_settings:state_name }}, {{ site_settings:state_name }}{{ /if }}</p>
-    </footer>
+                <div class="card-grid event-grid">
+                    {{ entries }}
+                        <article class="info-card event-card">
+                            <p class="card-meta">
+                                <span class="ne-type-badge ne-type-badge--{{ entry_type }}">{{ entry_type | upper }}</span>
+                                {{ if entry_type == 'event' && date }}{{ date format="M j, Y" }}{{ /if }}
+                            </p>
+                            <h3>{{ title }}</h3>
+                            {{ if description }}
+                                <p>{{ description | markdown | strip_tags | truncate:120 }}</p>
+                            {{ /if }}
+                            <a href="{{ url }}" class="text-link">Read more →</a>
+                        </article>
+                    {{ /entries }}
+                </div>
+            </section>
+        {{ /if }}
+    {{ /collection:news_events }}
 </main>

@@ -2,6 +2,30 @@ tree:
   -
     entry: home
   -
+    entry: who-we-are
+    children:
+      -
+        entry: our-mission
+      -
+        entry: acd-bylaws
+      -
+        entry: connect-with-community
+      -
+        entry: candidates
+  -
+    entry: engage
+    children:
+      -
+        entry: leadership-opportunities
+      -
+        entry: training-and-workshops
+      -
+        entry: acd-bookclub
+  -
+    entry: news-and-events
+  -
+    entry: voter-resources
+  -
     entry: about
   -
     entry: contact

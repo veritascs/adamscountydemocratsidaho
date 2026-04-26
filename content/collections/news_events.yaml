@@ -1,0 +1,8 @@
+title: 'News & Events'
+template: news_events/show
+route: 'news-events/{slug}'
+taxonomies:
+  - topics
+date: true
+sort_field: date
+sort_direction: desc

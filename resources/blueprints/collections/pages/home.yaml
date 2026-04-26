@@ -32,6 +32,21 @@ tabs:
               type: textarea
               display: Hero Text
           -
+            handle: hero_image
+            field:
+              type: assets
+              display: 'Hero Image'
+              container: assets
+              max_files: 1
+              instructions: 'Single image displayed in the top right of the hero section.'
+          -
+            handle: hero_images
+            field:
+              type: assets
+              display: 'Hero Image Collage'
+              container: assets
+              instructions: 'Upload 3–5 images to show a collage instead of a single image.'
+          -
             handle: primary_cta_label
             field:
               type: text

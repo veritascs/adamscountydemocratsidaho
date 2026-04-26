@@ -1,0 +1,79 @@
+title: 'News & Event'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Entry
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              validate:
+                - required
+          -
+            handle: entry_type
+            field:
+              type: select
+              display: Type
+              options:
+                news: News
+                event: Event
+              required: true
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: markdown
+              display: Description
+          -
+            handle: link
+            field:
+              type: link
+              display: Link
+              instructions: 'Link to the full article, external event page, or related resource.'
+          -
+            handle: image
+            field:
+              type: assets
+              display: Image
+              container: assets
+              max_files: 1
+          -
+            handle: topics
+            field:
+              type: terms
+              display: Topics
+              taxonomies:
+                - topics
+      -
+        display: 'Event Details'
+        fields:
+          -
+            handle: date
+            field:
+              type: date
+              display: 'Event Date & Time'
+              time_enabled: true
+              instructions: 'Only fill in for events.'
+          -
+            handle: location
+            field:
+              type: text
+              display: Location
+              instructions: 'Only fill in for events.'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

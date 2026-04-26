@@ -1,0 +1,7 @@
+title: Main
+collections:
+  - candidates
+  - news_events
+  - pages
+max_depth: 5
+root: true

@@ -9,7 +9,7 @@ hero_text: 'We are neighbors, volunteers, and community members working to stren
 primary_cta_label: 'Get involved'
 primary_cta_url: /contact
 secondary_cta_label: 'See community events'
-secondary_cta_url: '#events'
+secondary_cta_url: '/news-and-events?type=event'
 intro_heading: 'A county party page should feel local.'
 intro_text: |-
   Adams County Democrats should feel like a place for neighbors, not a national campaign microsite. The goal is to create a clear public front door where people can understand what the local party does, what matters in our communities, and how to participate.
@@ -59,19 +59,19 @@ involvement_paths:
     title: 'Attend a meeting'
     summary: 'Join a local meeting to listen, ask questions, and get a feel for the group before taking on anything else.'
     cta_label: 'Contact the team'
-    cta_url: /contact
+    cta_url: '/contact?interest=Attend+a+meeting'
   -
     id: mf4u7jo9
     title: 'Volunteer locally'
     summary: 'Help with outreach, event setup, community conversations, and the practical work that keeps a county party active.'
     cta_label: 'Join the effort'
-    cta_url: /contact
+    cta_url: '/contact?interest=Volunteer'
   -
     id: mf4u7jo10
     title: 'Stay in the loop'
     summary: 'Subscribe for updates so people can hear about meetings, opportunities, and local priorities without needing insider knowledge.'
     cta_label: 'Contact us'
-    cta_url: /contact
+    cta_url: '/contact?interest=Join+email+list'
 contact_heading: 'Let people know how to reach the county team'
 contact_text: |-
   Use this section for a public contact email, links to social accounts, and basic next steps for people who want to help.
@@ -79,6 +79,7 @@ contact_text: |-
   Once you have those details ready, update the site settings in the Statamic control panel and this page will automatically surface them.
 author: a06d34be-7b9c-4249-9727-be8d4d7d25a7
 updated_by: a06d34be-7b9c-4249-9727-be8d4d7d25a7
-updated_at: 1776705152
+updated_at: 1777232624
 protect: alt_password_protect_default
+hero_image: 27002.jpg
 ---

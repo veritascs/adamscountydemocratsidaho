@@ -23,17 +23,103 @@
     <body class="site-shell">
         <div class="site-frame">
             <header class="site-header">
+                {{# Brand / logo #}}
                 <a href="/" class="site-header__brand">
-                    {{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}
+                    {{ if site_settings:logo }}
+                        {{ site_settings:logo }}
+                            <img src="{{ url }}" alt="{{ site_settings:organization_name ?? site:name }}" class="site-logo-img" />
+                        {{ /site_settings:logo }}
+                    {{ else }}
+                        {{ if site_settings:organization_name }}{{ site_settings:organization_name }}{{ else }}{{ site:name }}{{ /if }}
+                    {{ /if }}
                 </a>
 
+                {{# Mobile menu toggle (CSS-only) #}}
+                <input type="checkbox" id="nav-toggle" class="nav-toggle-check" aria-hidden="true" />
+                <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </label>
+
                 <nav class="site-header__nav" aria-label="Primary">
-                    <a href="/" class="site-header__link">Home</a>
-                    <a href="/about" class="site-header__link">About</a>
+                    <div class="nav-panel">
+                        {{ nav handle="main" max_depth="3" }}
+                            <div class="nav-group">
+                                <a href="{{ url }}"
+                                   class="site-header__link nav-panel__link"
+                                   {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                    {{ title }}
+                                </a>
+
+                                {{ if children }}
+                                    <ul class="nav-panel__subnav">
+                                        {{ children }}
+                                            <li>
+                                                <a href="{{ url }}"
+                                                   class="nav-dropdown__link nav-panel__sublink"
+                                                   {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                                    {{ title }}
+                                                </a>
+
+                                                {{ if children }}
+                                                    <ul class="nav-panel__subsubnav">
+                                                        {{ children }}
+                                                            <li>
+                                                                <a href="{{ url }}"
+                                                                   class="nav-dropdown__link nav-panel__subsublink"
+                                                                   {{ if url | starts_with('http') }}target="_blank" rel="noopener noreferrer"{{ /if }}>
+                                                                    {{ title }}
+                                                                </a>
+                                                            </li>
+                                                        {{ /children }}
+                                                    </ul>
+                                                {{ /if }}
+                                            </li>
+                                        {{ /children }}
+                                    </ul>
+                                {{ /if }}
+                            </div>
+                        {{ /nav }}
+                    </div>
                 </nav>
             </header>
 
             {{ template_content }}
+
+            <footer class="site-footer site-footer--full">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand-col">
+                        {{ if site_settings:logo }}
+                            {{ site_settings:logo }}
+                                <img src="{{ url }}" alt="{{ site_settings:organization_name ?? site:name }}" class="footer-logo-img" />
+                            {{ /site_settings:logo }}
+                        {{ else }}
+                            <p class="footer-org-name">{{ site_settings:organization_name }}</p>
+                        {{ /if }}
+                        {{ if site_settings:footer_blurb }}
+                            <p class="footer-blurb">{{ site_settings:footer_blurb }}</p>
+                        {{ /if }}
+                    </div>
+
+                    <div class="footer-col footer-contact-col">
+                        <p class="footer-col-heading">Contact</p>
+                        {{ if site_settings:contact_phone }}
+                            <a href="tel:{{ site_settings:contact_phone | replace:' ':'' | replace:'(':'' | replace:')':'' | replace:'-':'' }}" class="footer-contact-line">
+                                📞 {{ site_settings:contact_phone }}
+                            </a>
+                        {{ /if }}
+                        {{ if site_settings:contact_email }}
+                            <a href="mailto:{{ site_settings:contact_email }}" class="footer-contact-line">
+                                ✉ {{ site_settings:contact_email }}
+                            </a>
+                        {{ /if }}
+                        <a href="/contact" class="button button-primary footer-cta-btn">Send us a message</a>
+                    </div>
+                </div>
+
+                <div class="footer-legal">
+                    <p>{{ site_settings:organization_name }}{{ if site_settings:county_name }}, {{ site_settings:county_name }}{{ /if }}{{ if site_settings:state_name }}, {{ site_settings:state_name }}{{ /if }}</p>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

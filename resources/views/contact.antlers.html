@@ -69,11 +69,15 @@
                         <span>Interest</span>
                         <select name="interest">
                             <option value="">Choose one</option>
-                            <option value="Attend a meeting">Attend a meeting</option>
-                            <option value="Volunteer">Volunteer</option>
-                            <option value="Stay informed">Stay informed</option>
-                            <option value="Candidate support">Candidate support</option>
-                            <option value="General questions">General questions</option>
+                            <option value="Join email list" {{ if (old:interest ?? get:interest) == "Join email list" }}selected{{ /if }}>Join our email list</option>
+                            <option value="Attend a meeting" {{ if (old:interest ?? get:interest) == "Attend a meeting" }}selected{{ /if }}>Attend a meeting</option>
+                            <option value="Volunteer" {{ if (old:interest ?? get:interest) == "Volunteer" }}selected{{ /if }}>Volunteer / Get involved</option>
+                            <option value="Join a precinct team" {{ if (old:interest ?? get:interest) == "Join a precinct team" }}selected{{ /if }}>Join a precinct team</option>
+                            <option value="Leadership opportunities" {{ if (old:interest ?? get:interest) == "Leadership opportunities" }}selected{{ /if }}>Leadership opportunities</option>
+                            <option value="Training and workshops" {{ if (old:interest ?? get:interest) == "Training and workshops" }}selected{{ /if }}>Training and workshops</option>
+                            <option value="ACD book club signup" {{ if (old:interest ?? get:interest) == "ACD book club signup" }}selected{{ /if }}>ACD book club signup</option>
+                            <option value="Candidate support" {{ if (old:interest ?? get:interest) == "Candidate support" }}selected{{ /if }}>Candidate support</option>
+                            <option value="General questions" {{ if (old:interest ?? get:interest) == "General questions" }}selected{{ /if }}>General questions</option>
                         </select>
                     </label>
 

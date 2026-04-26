@@ -84,6 +84,14 @@ This site is deployed on DreamHost with the application code outside the served 
 	$app->handleRequest(Request::capture());
 	```
 
+4. Symlink served `public/assets` to the repo's `public/assets` so uploaded/tracked images are always available to browsers:
+
+	```bash
+	cd /home/dh_v2mg7z/adamscountydemocratsidaho.org/public
+	mv assets assets.bak.$(date +%Y%m%d%H%M%S) 2>/dev/null || true
+	ln -s ../adamscountydemocratsidaho/public/assets assets
+	```
+
 ### Deploy steps
 
 Run on the DreamHost server:
@@ -119,12 +127,25 @@ rsync -av /Users/Max.Bechdel/Projects/adamscountydems/public/build/ \
 dh_v2mg7z@pdx1-shared-a1-06.dreamhost.com:/home/dh_v2mg7z/adamscountydemocratsidaho.org/public/build/
 ```
 
+Content images are served from `public/assets` (Statamic asset container). Since these files are in git, the symlink above is the preferred long-term setup and usually requires no per-deploy step.
+
+If the symlink is missing, sync assets to both locations as a fallback:
+
+```bash
+rsync -av /Users/Max.Bechdel/Projects/adamscountydems/public/assets/ \
+dh_v2mg7z@pdx1-shared-a1-06.dreamhost.com:/home/dh_v2mg7z/adamscountydemocratsidaho.org/adamscountydemocratsidaho/public/assets/
+
+rsync -av /Users/Max.Bechdel/Projects/adamscountydems/public/assets/ \
+dh_v2mg7z@pdx1-shared-a1-06.dreamhost.com:/home/dh_v2mg7z/adamscountydemocratsidaho.org/public/assets/
+```
+
 ### Known gotchas
 
 - The lock file must stay compatible with PHP 8.2 on DreamHost.
 - `APP_URL` must include the scheme, for example `https://adamscountydemocratsidaho.org`.
 - `APP_DEBUG` should be `false` in production.
 - If the frontend 500s while `/cp` still works, check `public/index.php` pathing and whether `public/build` exists in both locations.
+- If CSS/JS loads but images 404, check whether served `public/assets` is symlinked to repo `public/assets`.
 
 [docs]: https://statamic.dev/
 [discord]: https://statamic.com/discord
